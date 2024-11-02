@@ -59,6 +59,7 @@ sudo apt update
 sudo apt install mysql-server -y
 ```
 ### Clonación Repositorio
+Repetimos el mismo paso que en el Servidor Apache.
 ```
 git clone https://github.com/josejuansanchez/iaw-practica-lamp.git /home/vagrant/iaw-practica-lamp
 ```
