@@ -63,15 +63,18 @@ sudo apt install mysql-server -y
 git clone https://github.com/josejuansanchez/iaw-practica-lamp.git /home/vagrant/iaw-practica-lamp
 ```
 ### Importamos Base de Datos
+Dentro de la carpeta que clonamos esta el directorio "db" donde se encuentra el archivo sql para importar la base de datos.
 ```
 sudo mysql -e "SOURCE /home/vagrant/iaw-practica-lamp/db/database.sql"
 ```
 ### Creamos usuario
+Creamos el usuario para el Servior Apache , necesario poner la ip de este . Además le damos todos los permisos en la base de datos de la aplicación.
 ```
 sudo mysql -e "USE lamp_db; CREATE USER 'usuario'@'192.168.10.2' IDENTIFIED BY 'anwar';"
 sudo mysql -e "USE lamp_db; GRANT ALL PRIVILEGES ON lamp_db.* TO 'usuario'@'192.168.10.2'; FLUSH PRIVILEGES;"
 ```
 ### Fichero Configuración
+Editamos el fichero de configuacion mysqld.cnf , en este caso cambiamos la bind-address esta por defecto a la del servidor SQL.
 ```
 sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf |sed "s/^bind-address[[:space:]]*=.*/bind-address = 192.168.10.3/" > /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo systemctl restart mysql
