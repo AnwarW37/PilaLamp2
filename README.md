@@ -1,5 +1,25 @@
 # PILA LAMP EN 2 NIVELES
-En esta practica he automatizado la  instalación y configuración de una aplicación web LAMP en dos máquinas. En una de las máquinas tenemos que tener el Servidor Web (Apache,PHP) y en la otra la base de datos (MySQL). Para crear el entorno he utilizado Vagrant , 
+En esta practica he automatizado la  instalación y configuración de una aplicación web LAMP en dos máquinas. En una de las máquinas tenemos que tener el Servidor Web (Apache,PHP) y en la otra la base de datos (MySQL). Para crear el entorno he utilizado Vagrant.
+## Vagrantfile
+```
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/jammy64"
+  #M1 Servidor Web (Apache,PHP)
+  config.vm.define "AnwarWarApache" do |apache|
+  apache.vm.hostname = "AnwarWarApache"
+  apache.vm.network "private_network", ip: "192.168.10.2"
+  apache.vm.network "public_network"
+  apache.vm.network "forwarded_port", guest: 80, host: 8700
+  apache.vm.provision "shell", path: "provapache.sh"
+  end
+  #M2 Servidor Base Datos (MySQL)
+  config.vm.define "AnwarWarSQL" do |sql|
+  sql.vm.hostname = "AnwarWarSQL"
+  sql.vm.network "private_network", ip: "192.168.10.3"
+  sql.vm.provision "shell", path: "provsql.sh"
+  end
+end
+```
 
 ## APACHE
 Para la instalacion y configuracion del servidor web he seguido los siguientes pasos :
