@@ -75,7 +75,7 @@ sudo mysql -e "USE lamp_db; CREATE USER 'usuario'@'192.168.10.2' IDENTIFIED BY '
 sudo mysql -e "USE lamp_db; GRANT ALL PRIVILEGES ON lamp_db.* TO 'usuario'@'192.168.10.2'; FLUSH PRIVILEGES;"
 ```
 ### Fichero Configuración
-Editamos el fichero de configuacion mysqld.cnf , en este caso solo cambiamos la bind-address esta por defecto a la del servidor SQL.
+Editamos el fichero de configuacion mysqld.cnf , en este caso solo cambiamos la bind-address que esta por defecto a la del servidor SQL.
 ```
 sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf |sed "s/^bind-address[[:space:]]*=.*/bind-address = 192.168.10.3/" > /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo systemctl restart mysql
