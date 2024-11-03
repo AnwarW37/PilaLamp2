@@ -22,7 +22,7 @@ end
 ```
 
 ## APACHE
-Para la instalacion y configuracion del servidor web he seguido los siguientes pasos :
+Para la instalacion y configuración del servidor web, he seguido los siguientes pasos :
 
 1. Instalacion Apache y PHP
 2. Clonación del Repositorio
@@ -67,7 +67,7 @@ sudo ip route del default
 ```
 
 ## MySQL
-Para la instalación y configuración de la base de datos he seguido los siguientes pasos :
+Para la instalación y configuración de la base de datos, he seguido los siguientes pasos :
 1. Instalación MySQL-Server
 2. Clonación Repositorio
 3. Importamos Base de Datos
