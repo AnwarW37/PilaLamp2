@@ -61,7 +61,7 @@ sudo a2ensite lamp.conf
 sudo systemctl restart apache2
 ```
 ### 6. Restricción acceso internet
-Aunque el servidor Apache tiene acceso a Internet mediante el adaptador NAT de Vagrant, eliminamos la ruta predeterminada configurada por defecto.
+Quitamos el enrutamiento que hace Vagrant por defecto. Para que el Servidor Apache solo tenga acceso a internet por el adaptador NAT. De este modo , aumentamos la seguridad.
 ```
 sudo ip route del default
 ```
