@@ -4,11 +4,11 @@ En esta practica he automatizado la  instalación y configuración de una aplica
 ## Apache
 Para la instalacion y configuracion del servidor web he seguido los siguientes pasos :
 
-* Instalacion Apache y PHP
-* Clonación Repositorio
-* Fichero de Configuración
-* Fichero config.php
-* Habilitamos Sitio
+1. * Instalacion Apache y PHP
+2. * Clonación del Repositorio
+3. * Fichero de Configuración
+4. * Fichero config.php
+5. * Habilitación del Sitio
 
 ### Instalacion Apache y PHP
 ```
@@ -16,7 +16,7 @@ sudo apt update
 sudo apt install apache2 -y
 sudo apt install php libapache2-mod-php php-mysql -y
 ```
-### Clonación Repositorio
+### Clonación del Repositorio
 Clonamos el repositorio https://github.com/josejuansanchez/iaw-practica-lamp.git y lo movemos al directorio "/var/www/html/"
 ```
 sudo git clone https://github.com/josejuansanchez/iaw-practica-lamp.git /home/vagrant/iaw-practica-lamp
@@ -32,7 +32,7 @@ Editamos el fichero config.php con los datos necesarios para que se pueda conect
 ```
 cat /var/www/html/src/config.php|sed "s/localhost/192.168.10.3/"|sed "s/database_name_here/lamp_db/"|sed "s/username_here/usuario/"|sed "s/password_here/anwar/" > /var/www/html/src/config.php
 ```
-### Habilitamos Sitio
+### Habilitación del Sitio
 Deshabilitamos el que viene por defecto y habilitamos el sitio que hemos creado para la aplicación. Por último , reiniciamos el servicio de Apache.
 ```
 sudo a2dissite 000-default.conf
