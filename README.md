@@ -23,7 +23,7 @@ sudo git clone https://github.com/josejuansanchez/iaw-practica-lamp.git /home/va
 sudo mv /home/vagrant/iaw-practica-lamp/src/ /var/www/html/
 ```
 ### Fichero de Configuración
-Utilizamos el fichero 000-default.conf para crear el de la aplicación y con "sed" editamos la ruta del DocumentRoot.
+Creamos un nuevo archivo de configuración para el sitio en /etc/apache2/sites-available/lamp.conf, utilizando el archivo por defecto "000-default.conf" como plantilla. Con sed, modificamos la ruta DocumentRoot.
 ```
 sudo cat /etc/apache2/sites-available/000-default.conf | sudo sed "s/\/var\/www\/html/\/var\/www\/html\/src\//" > /etc/apache2/sites-available/lamp.conf
 ```
