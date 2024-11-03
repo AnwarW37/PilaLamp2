@@ -4,11 +4,11 @@ En esta practica he automatizado la  instalación y configuración de una aplica
 ## Apache
 Para la instalacion y configuracion del servidor web he seguido los siguientes pasos :
 
-1. * Instalacion Apache y PHP
-2. * Clonación del Repositorio
-3. * Fichero de Configuración
-4. * Fichero config.php
-5. * Habilitación del Sitio
+1. ** Instalacion Apache y PHP
+2. ** Clonación del Repositorio
+3. ** Fichero de Configuración
+4. ** Fichero config.php
+5. ** Habilitación del Sitio
 
 ### Instalacion Apache y PHP
 ```
