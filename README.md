@@ -88,10 +88,10 @@ Le quitamos el acceso el internet a la base de datos por motivos de seguridad.
 sudo ip route del default
 ```
 ## Acceso a la Aplicación
-Para acceder a la aplicación LAMP, en nuestro navegador buscamos http://localhost:"PUERTO" , ponemos el puerto que hemos puesto en port-forwarding al configurar el VagrantFile. En este caso es el puerto 8700 , http://localhost:8700 .
+Para acceder a la aplicación LAMP, en nuestro navegador buscamos http://localhost:"PUERTO" , ponemos el puerto que hemos puesto en port-forwarding al configurar el VagrantFile.
 ```
 apache.vm.network "forwarded_port", guest: 80, host: 8700
 ```
-
+En este caso es el puerto 8700 , http://localhost:8700 .
 
 
