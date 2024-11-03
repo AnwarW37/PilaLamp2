@@ -80,7 +80,11 @@ Editamos el fichero de configuacion mysqld.cnf , en este caso solo cambiamos la 
 sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf |sed "s/^bind-address[[:space:]]*=.*/bind-address = 192.168.10.3/" > /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo systemctl restart mysql
 ```
-
+### Deshabilitamos acceso internet
+Le quitamos el acceso el internet a la base de datos ..
+```
+sudo ip route del default
+```
 
 
 
