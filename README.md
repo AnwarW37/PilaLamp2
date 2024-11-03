@@ -1,4 +1,4 @@
-# PilaLamp2
+# Pila LAMP EN 2 NIVELES
 En esta practica he automatizado la  instalación y configuración de una aplicación web LAMP en dos máquinas. En una de las máquinas tenemos que tener el Servidor Web (Apache,PHP) y en la otra la base de datos (MySQL). Para crear el entorno he utilizado Vagrant , 
 
 ## Apache
@@ -7,7 +7,7 @@ Para la instalacion y configuracion del servidor web he seguido los siguientes p
 1. Instalacion Apache y PHP
 2. Clonación del Repositorio
 3. Fichero de Configuración
-4. Fichero config.php
+4. Configuración config.php
 5. Habilitación del Sitio
 6. Restricción acceso internet
 
@@ -28,7 +28,7 @@ Creamos un nuevo archivo de configuración para el sitio en /etc/apache2/sites-a
 ```
 sudo cat /etc/apache2/sites-available/000-default.conf | sudo sed "s/\/var\/www\/html/\/var\/www\/html\/src\//" > /etc/apache2/sites-available/lamp.conf
 ```
-### Fichero config.php
+### Configuración config.php
 Editamos el fichero config.php con los datos necesarios para que se pueda conectar a la base de datos.   
 ```
 cat /var/www/html/src/config.php|sed "s/localhost/192.168.10.3/"|sed "s/database_name_here/lamp_db/"|sed "s/username_here/usuario/"|sed "s/password_here/anwar/" > /var/www/html/src/config.php
@@ -40,8 +40,8 @@ sudo a2dissite 000-default.conf
 sudo a2ensite lamp.conf
 sudo systemctl restart apache2
 ```
-### Deshabilitamos acceso internet
-En este caso el Servidor Apache seguirá teniendo acceso a internet ya que en el VagrantFile le hemos puesto un adaptador NAT. Pero le quitamos la que le pone Vagrant por defecto.
+### Restricción acceso internet
+Aunque el servidor Apache tiene acceso a Internet mediante el adaptador NAT de Vagrant, eliminamos la ruta predeterminada configurada por defecto.
 ```
 sudo ip route del default
 ```
