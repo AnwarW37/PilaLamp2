@@ -1,5 +1,5 @@
 # PILA LAMP EN 2 NIVELES
-En esta practica he automatizado la  instalación y configuración de una aplicación web LAMP en dos máquinas. En una de las máquinas tenemos que tener el Servidor Web (Apache,PHP) y en la otra la base de datos (MySQL). Para crear el entorno he utilizado Vagrant.
+En esta practica he automatizado la  instalación y configuración de una aplicación web LAMP en dos máquinas. En una de las máquinas tenemos que tener el Servidor Web (Apache,PHP) y en la otra la base de datos (MySQL). Para crear el entorno he utilizado Vagrant con la siguiente configuración.
 ## Vagrantfile
 ```
 Vagrant.configure("2") do |config|
@@ -49,7 +49,7 @@ Creamos un nuevo archivo de configuración para el sitio en /etc/apache2/sites-a
 sudo cat /etc/apache2/sites-available/000-default.conf | sudo sed "s/\/var\/www\/html/\/var\/www\/html\/src\//" > /etc/apache2/sites-available/lamp.conf
 ```
 ### 4. Configuración config.php
-Editamos el fichero config.php con los datos necesarios para que se pueda conectar a la base de datos.   
+Editamos el fichero config.php con los datos necesarios para que se pueda conectar a la base de datos.
 ```
 cat /var/www/html/src/config.php|sed "s/localhost/192.168.10.3/"|sed "s/database_name_here/lamp_db/"|sed "s/username_here/usuario/"|sed "s/password_here/anwar/" > /var/www/html/src/config.php
 ```
@@ -97,7 +97,7 @@ sudo mysql -e "USE lamp_db; CREATE USER 'usuario'@'192.168.10.2' IDENTIFIED BY '
 sudo mysql -e "USE lamp_db; GRANT ALL PRIVILEGES ON lamp_db.* TO 'usuario'@'192.168.10.2'; FLUSH PRIVILEGES;"
 ```
 ### 5. Configuración de mysqld.cnf
-Editamos el archivo de configuración de MySQL para que acepte conexiones en la IP del servidor de base de datos.
+Editamos el archivo de configuración de MySQL para que acepte conexiones en la IP del servidor de base de datos.  En este caso la IP "192.168.10.3". 
 ```
 sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf |sed "s/^bind-address[[:space:]]*=.*/bind-address = 192.168.10.3/" > /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo systemctl restart mysql
