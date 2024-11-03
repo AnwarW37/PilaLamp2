@@ -9,6 +9,7 @@ Para la instalacion y configuracion del servidor web he seguido los siguientes p
 3. Fichero de Configuración
 4. Fichero config.php
 5. Habilitación del Sitio
+6. Restricción acceso internet
 
 ### Instalacion Apache y PHP
 ```
@@ -50,8 +51,9 @@ Para la instalación y configuración de la base de datos he seguido los siguien
 1. Instalación MySQL-Server
 2. Clonación Repositorio
 3. Importamos Base de Datos
-4. Creamos usuario
-5. Fichero Configuración
+4. Creación usuario de la Base de Datos
+5. Configuración de mysqld.cnf
+6. Restricción acceso internet
 
 ### Instalación MySQL-Server
 ```
@@ -68,19 +70,19 @@ Dentro de la carpeta que clonamos esta el directorio "db" donde se encuentra el 
 ```
 sudo mysql -e "SOURCE /home/vagrant/iaw-practica-lamp/db/database.sql"
 ```
-### Creamos usuario
+### Creación usuario de la Base de Datos
 Creamos el usuario "usuario" con la contraseña "anwar". Además le damos todos los permisos en la base de datos de la aplicación.
 ```
 sudo mysql -e "USE lamp_db; CREATE USER 'usuario'@'192.168.10.2' IDENTIFIED BY 'anwar';"
 sudo mysql -e "USE lamp_db; GRANT ALL PRIVILEGES ON lamp_db.* TO 'usuario'@'192.168.10.2'; FLUSH PRIVILEGES;"
 ```
 ### Configuración de mysqld.cnf
-Editamos el fichero de configuacion mysqld.cnf , en este caso solo cambiamos la bind-address que esta por defecto a la del servidor SQL.
+Editamos el archivo de configuración de MySQL para que acepte conexiones en la IP del servidor de base de datos.
 ```
 sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf |sed "s/^bind-address[[:space:]]*=.*/bind-address = 192.168.10.3/" > /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo systemctl restart mysql
 ```
-### Deshabilitamos acceso internet
+### Restricción acceso internet
 Le quitamos el acceso el internet a la base de datos ..
 ```
 sudo ip route del default
