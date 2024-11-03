@@ -85,7 +85,7 @@ Repetimos el mismo paso que en el Servidor Apache.
 ```
 git clone https://github.com/josejuansanchez/iaw-practica-lamp.git /home/vagrant/iaw-practica-lamp
 ```
-### 3. Importamos Base de Datos
+### 3. Importación Base de Datos
 Dentro de la carpeta que clonamos esta el directorio "db" donde se encuentra el archivo sql para importar la base de datos.
 ```
 sudo mysql -e "SOURCE /home/vagrant/iaw-practica-lamp/db/database.sql"
