@@ -1,4 +1,4 @@
-# Pila LAMP EN 2 NIVELES
+# PILA LAMP EN 2 NIVELES
 En esta practica he automatizado la  instalación y configuración de una aplicación web LAMP en dos máquinas. En una de las máquinas tenemos que tener el Servidor Web (Apache,PHP) y en la otra la base de datos (MySQL). Para crear el entorno he utilizado Vagrant , 
 
 ## Apache
